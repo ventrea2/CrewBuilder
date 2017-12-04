@@ -1,0 +1,1 @@
+Insert into captain(crewid) values (:crewid); 

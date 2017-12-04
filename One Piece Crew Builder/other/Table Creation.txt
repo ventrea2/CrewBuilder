@@ -1,0 +1,80 @@
+CREATE TABLE `captain` (
+
+  `bounty` int(11) DEFAULT NULL,
+
+  `crewid` int(11) NOT NULL AUTO_INCREMENT,
+
+  `name` varchar(50) DEFAULT NULL,
+
+  `crewName` varchar(45) DEFAULT NULL,
+
+  `abilities` varchar(45) DEFAULT NULL,
+
+  `Info` varchar(500) DEFAULT NULL,
+
+  PRIMARY KEY (`crewid`),
+
+  UNIQUE KEY `crewid_UNIQUE` (`crewid`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8
+
+
+CREATE TABLE `cap_crew` (
+  `capId` int(11) NOT NULL,
+
+  `crewId` int(11) NOT NULL,
+
+  PRIMARY KEY (`capId`,`crewId`),
+
+  KEY `crewId_idx` (`crewId`),
+
+  CONSTRAINT `capId` FOREIGN KEY (`capId`) REFERENCES `captain` (`crewid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+
+  CONSTRAINT `crewId` FOREIGN KEY (`crewId`) REFERENCES `crew` (`crewid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `crew` (
+
+  `crewid` int(11) NOT NULL AUTO_INCREMENT,
+
+  `name` varchar(50) DEFAULT NULL,
+  `bounty` int(11) DEFAULT NULL,
+  `abilities` varchar(100) DEFAULT NULL,
+
+  `Info` varchar(500) DEFAULT NULL,
+
+  PRIMARY KEY (`crewid`),
+  UNIQUE KEY `crewid_UNIQUE` (`crewid`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8
+
+CREATE TABLE `users` (
+
+  `crewid` int(11) NOT NULL AUTO_INCREMENT,
+
+  `name` varchar(45) DEFAULT NULL,
+
+  `username` varchar(45) DEFAULT NULL,
+
+  `password` varchar(45) DEFAULT NULL,
+
+  PRIMARY KEY (`crewid`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8
+
+CREATE TABLE `db_fall17_ventrea2`.`users` (
+
+  `crewid` INT(50) NOT NULL,
+
+  `name` VARCHAR(45) NULL,
+
+  `username` VARCHAR(20) NULL,
+
+  `password` VARCHAR(20) NULL,
+
+  PRIMARY KEY (`crewid`),
+
+  UNIQUE INDEX `crewid_UNIQUE` (`crewid` ASC),
+
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC));

@@ -1,0 +1,1 @@
+Insert into users(name, username, password) values (:name, :username, :password)

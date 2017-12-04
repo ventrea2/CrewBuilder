@@ -1,0 +1,1 @@
+DELETE cap_crew WHERE capId = :capId;

@@ -1,0 +1,1 @@
+SELECT * FROM cap_crew JOIN crew ON cap_crew.crewid = crew.crewid WHERE capid = :crewid
